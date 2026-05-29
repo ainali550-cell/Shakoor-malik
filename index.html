@@ -91,16 +91,14 @@ nav{
     margin-bottom:10px;
 }
 
-/* Typing Effect Container Styling */
 .hero h2{
     font-size:1.6rem;
     color:#38bdf8;
     margin-bottom:20px;
     font-weight:500;
-    min-height: 2.4rem; /* Prevents layout layout shifting while text deletes */
+    min-height: 2.4rem; 
 }
 
-/* Blinking Cursor Styling */
 .cursor {
     display: inline-block;
     width: 3px;
@@ -120,11 +118,19 @@ nav{
     margin:auto;
     font-size:1.1rem;
     color:#cbd5e1;
+    margin-bottom: 35px;
+}
+
+/* Button Alignment Container */
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn{
     display:inline-block;
-    margin-top:35px;
     padding:14px 32px;
     border-radius:8px;
     background:#38bdf8;
@@ -136,6 +142,19 @@ nav{
 .btn:hover{
     transform:translateY(-4px);
     background:#fff;
+}
+
+/* Specific Style for Download CV Secondary Button */
+.btn-secondary {
+    background: transparent;
+    color: #38bdf8;
+    border: 2px solid #38bdf8;
+}
+
+.btn-secondary:hover {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    transform:translateY(-4px);
 }
 
 section{
@@ -404,7 +423,6 @@ footer{
     <div class="container hero-content">
         <h1>Shakoor Malik</h1>
 
-        <!-- The roles type here dynamically via JavaScript -->
         <h2>I'm a <span id="typing-text"></span><span class="cursor">&nbsp;</span></h2>
 
         <p>
@@ -413,7 +431,11 @@ footer{
             precision, and next-generation AI innovation.
         </p>
 
-        <a href="#contact" class="btn">Hire Me</a>
+        <!-- Dynamic Button Group -->
+        <div class="hero-btns">
+            <a href="#contact" class="btn">Hire Me</a>
+            <a href="Shakoor_Malik_CV.pdf" download="Shakoor_Malik_CV.pdf" class="btn btn-secondary">Download CV</a>
+        </div>
     </div>
 </section>
 
@@ -641,7 +663,6 @@ footer{
     <p>© 2026 Shakoor Malik. All Rights Reserved.</p>
 </footer>
 
-<!-- Pure Vanilla JavaScript Auto-Typing Script -->
 <script>
 const words = ["Web Designer.", "Software Developer.", "AI Specialist."];
 let wordIndex = 0;
@@ -653,34 +674,28 @@ function typeEffect() {
     const currentWord = words[wordIndex];
     
     if (isDeleting) {
-        // Remove trailing character
         typingTarget.textContent = currentWord.substring(0, charIndex - 1);
         charIndex--;
     } else {
-        // Add next character
         typingTarget.textContent = currentWord.substring(0, charIndex + 1);
         charIndex++;
     }
 
-    // Set dynamic typing speeds
     let typeSpeed = isDeleting ? 40 : 100;
 
-    // If word is completely typed out, pause before deleting
     if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000; // Delay duration at full word
+        typeSpeed = 2000; 
         isDeleting = true;
     } 
-    // If word is fully deleted, move to the next word item
     else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 400; // Small delay before typing next word
+        typeSpeed = 400; 
     }
 
     setTimeout(typeEffect, typeSpeed);
 }
 
-// Fire up the animation once the document loads
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeEffect, 500);
 });
