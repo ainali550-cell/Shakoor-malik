@@ -91,11 +91,28 @@ nav{
     margin-bottom:10px;
 }
 
+/* Typing Effect Container Styling */
 .hero h2{
-    font-size:1.5rem;
+    font-size:1.6rem;
     color:#38bdf8;
     margin-bottom:20px;
     font-weight:500;
+    min-height: 2.4rem; /* Prevents layout layout shifting while text deletes */
+}
+
+/* Blinking Cursor Styling */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: #38bdf8;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .hero p{
@@ -387,7 +404,8 @@ footer{
     <div class="container hero-content">
         <h1>Shakoor Malik</h1>
 
-        <h2>Web Designer • Developer • AI Trainer</h2>
+        <!-- The roles type here dynamically via JavaScript -->
+        <h2>I'm a <span id="typing-text"></span><span class="cursor">&nbsp;</span></h2>
 
         <p>
             "Shaping advanced intelligence. Crafting elegant simplicity."
@@ -622,6 +640,51 @@ footer{
 <footer>
     <p>© 2026 Shakoor Malik. All Rights Reserved.</p>
 </footer>
+
+<!-- Pure Vanilla JavaScript Auto-Typing Script -->
+<script>
+const words = ["Web Designer.", "Software Developer.", "AI Specialist."];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingTarget = document.getElementById("typing-text");
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+    
+    if (isDeleting) {
+        // Remove trailing character
+        typingTarget.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        // Add next character
+        typingTarget.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    // Set dynamic typing speeds
+    let typeSpeed = isDeleting ? 40 : 100;
+
+    // If word is completely typed out, pause before deleting
+    if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 2000; // Delay duration at full word
+        isDeleting = true;
+    } 
+    // If word is fully deleted, move to the next word item
+    else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 400; // Small delay before typing next word
+    }
+
+    setTimeout(typeEffect, typeSpeed);
+}
+
+// Fire up the animation once the document loads
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(typeEffect, 500);
+});
+</script>
 
 </body>
 </html>
