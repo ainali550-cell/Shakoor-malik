@@ -6,6 +6,8 @@
 <title>Shakoor Malik | AI Trainer & Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Loading Cormorant Garamond as a premium fallback Google Font for your editorial headline statement -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -94,7 +96,7 @@ nav{
 .hero h2{
     font-size:1.6rem;
     color:#38bdf8;
-    margin-bottom:20px;
+    margin-bottom:25px;
     font-weight:500;
     min-height: 2.4rem; 
 }
@@ -113,15 +115,19 @@ nav{
     100% { opacity: 1; }
 }
 
+/* Premium Typography Style for your Quote Headline Statement */
 .hero p{
-    max-width:750px;
+    max-width:800px;
     margin:auto;
-    font-size:1.1rem;
+    font-size:1.35rem; /* Slightly larger for premium readability */
     color:#cbd5e1;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
+    font-family: 'PP Editorial New', 'Didot', 'Bodoni MT', 'Cormorant Garamond', serif;
+    font-style: italic;
+    letter-spacing: 0.3px;
+    line-height: 1.6;
 }
 
-/* Button Alignment Container */
 .hero-btns {
     display: flex;
     justify-content: center;
@@ -144,7 +150,6 @@ nav{
     background:#fff;
 }
 
-/* Specific Style for Download CV Secondary Button */
 .btn-secondary {
     background: transparent;
     color: #38bdf8;
@@ -383,6 +388,10 @@ footer{
         font-size:2.8rem;
     }
 
+    .hero p {
+        font-size:1.15rem;
+    }
+
     .about-grid{
         grid-template-columns:1fr;
     }
@@ -425,13 +434,13 @@ footer{
 
         <h2>I'm a <span id="typing-text"></span><span class="cursor">&nbsp;</span></h2>
 
+        <!-- Custom Quote statement running your selected PP Editorial New style choices -->
         <p>
             "Shaping advanced intelligence. Crafting elegant simplicity."
             Building modern digital experiences with creativity,
             precision, and next-generation AI innovation.
         </p>
 
-        <!-- Dynamic Button Group -->
         <div class="hero-btns">
             <a href="#contact" class="btn">Hire Me</a>
             <a href="Shakoor_Malik_CV.pdf" download="Shakoor_Malik_CV.pdf" class="btn btn-secondary">Download CV</a>
