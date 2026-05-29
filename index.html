@@ -119,7 +119,7 @@ nav{
 .hero p{
     max-width:800px;
     margin:auto;
-    font-size:1.35rem; /* Slightly larger for premium readability */
+    font-size:1.35rem; 
     color:#cbd5e1;
     margin-bottom: 40px;
     font-family: 'PP Editorial New', 'Didot', 'Bodoni MT', 'Cormorant Garamond', serif;
@@ -215,6 +215,51 @@ section{
 .skill-card h3{
     margin-bottom:12px;
     color:#38bdf8;
+}
+
+/* "The Bench" Dedicated Layout Matrix */
+.bench-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.bench-card {
+    background: #1e293b;
+    padding: 35px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.bench-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.05);
+}
+
+.bench-card h3 {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.bench-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: rgba(15, 23, 42, 0.6);
+    color: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .portfolio-grid{
@@ -420,6 +465,7 @@ footer{
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
+                <a href="#bench">The Bench</a>
                 <a href="#portfolio">Portfolio</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
@@ -516,6 +562,62 @@ footer{
 
         </div>
 
+    </div>
+</section>
+
+<!-- NEW SECTION: The Bench (Research & Development Toolkit) -->
+<section id="bench" style="background: #0b0f19;">
+    <div class="container">
+        <div class="section-title">
+            <h2>The Bench</h2>
+            <p style="color: #94a3b8; text-align: center; margin-top: -40px; font-size: 1.1rem;">Tools I use for research & development work</p>
+        </div>
+
+        <div class="bench-grid">
+            <!-- Computation -->
+            <div class="bench-card">
+                <h3>Computation</h3>
+                <div class="bench-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">NumPy</span>
+                    <span class="tag">SymPy</span>
+                    <span class="tag">SciPy</span>
+                    <span class="tag">Matplotlib</span>
+                </div>
+            </div>
+
+            <!-- Writing & Typesetting -->
+            <div class="bench-card">
+                <h3>Writing & Typesetting</h3>
+                <div class="bench-tags">
+                    <span class="tag">LaTeX</span>
+                    <span class="tag">Overleaf</span>
+                    <span class="tag">KaTeX</span>
+                    <span class="tag">Pandoc</span>
+                </div>
+            </div>
+
+            <!-- Authoring Tooling -->
+            <div class="bench-card">
+                <h3>Authoring Tooling</h3>
+                <div class="bench-tags">
+                    <span class="tag">Jupyter</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">JSON schemas</span>
+                    <span class="tag">React (eval UIs)</span>
+                </div>
+            </div>
+
+            <!-- Frontier-Model Work -->
+            <div class="bench-card">
+                <h3>Frontier-Model Work</h3>
+                <div class="bench-tags">
+                    <span class="tag">Claude</span>
+                    <span class="tag">ChatGPT</span>
+                    <span class="tag">Gemini</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
